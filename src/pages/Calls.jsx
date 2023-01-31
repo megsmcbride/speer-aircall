@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 // import CallDetails from "../components/CallDetails.jsx";
+import "../css/Header.css"
 import CallListItem from "../components/CallListItem.jsx";
 import { useQuery } from "react-query";
 import axios from "axios";
+import Header from "../Header.jsx";
+import { BiArchiveIn } from "react-icons/bi"
+
 
 const Calls = () => {
   const [callData, setCallData] = useState({ calls: [] });
+  const [filterCalls, setFilterCalls] = useState(true);
 
   const fetcher = () =>
     axios
@@ -24,19 +29,38 @@ const Calls = () => {
     return <div>Something went wrong...</div>;
   }
 
-
-  const [callDetails, setCallDetails] = useState({});
-
   let calls;
 
-
-  if (callData.length > 0) {
+  if (callData.length > 0 && filterCalls) {
+    calls = callData
+      .filter((call) => "direction" in call)
+      .filter((call) => call.direction.includes("inbound"))
+      .map((call) => {
+        return <CallListItem key={call.id} {...call} />;
+      });
+  }
+  if (callData.length > 0 && !filterCalls) {
     calls = callData.map((call) => {
       return <CallListItem key={call.id} {...call} />;
     });
   }
 
-  return <div className="call-list-container">{calls}</div>;
+  return (
+    <div>
+      <div className="upperNav">
+      <Header />
+      <button onClick={() => setFilterCalls(true)}>Inbox</button>
+      <button onClick={() => setFilterCalls(false)}>All Calls</button>
+
+      </div>
+      <div className="call-list-container">
+        {filterCalls && <button>
+          <BiArchiveIn />
+          Archive All Calls</button>}
+        {calls}
+        </div>
+    </div>
+  );
 };
 
 export default Calls;
