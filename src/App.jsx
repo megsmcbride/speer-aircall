@@ -1,17 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom/client";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Calls from "./pages/Calls.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+// import Status from "./components/Status";
+// import Profile from "./pages/Profile";
+// import Keypad from "./pages/Keypad";
+const queryClient = new QueryClient();
 
-import Header from './Header.jsx';
-
-const App = () => {
+export default function App() {
   return (
-    <div className='container'>
-      <Header/>
-      <div className="container-view">Some activities should be here</div>
+    <div className="container">
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Calls />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </QueryClientProvider>
     </div>
   );
-};
+}
 
-ReactDOM.render(<App/>, document.getElementById('app'));
-
-export default App;
+const root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(<App />);
