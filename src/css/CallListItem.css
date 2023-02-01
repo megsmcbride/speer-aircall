@@ -1,0 +1,57 @@
+.call-container {
+  width: auto;
+  height: auto;
+  border: 1px solid grey;
+  border-radius: 12px;
+  margin: 1em;
+  padding: 0.7em;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 0 6px rgb(0 0 0 / 20%);
+
+
+}
+
+.call-info-right {
+  display: flex;
+  align-items: flex-end;
+  justify-items: space-between;
+  flex-direction: column;
+  margin-left: auto;
+}
+
+.call-info-mid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.caller {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.via {
+  color: gray;
+  font-weight: 350;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.time{
+  font-size: 13px;
+  position: relative;
+  margin: auto 5px
+}
+
+.date {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.call-icon {
+  align-self: center;
+  padding: 1em;
+}

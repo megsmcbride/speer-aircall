@@ -1,0 +1,38 @@
+.call-title {
+ text-align: center;
+ font-weight: bold;
+ font-size: large;
+ margin: 20px;
+}
+
+.call-details {
+  text-align: center;
+
+}
+
+.detail-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.detail-buttons button{
+  background-color: #30c73d;
+  border: none;
+  margin: 30px 30px;
+  color: white;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 0.5em 1em;
+  
+}
+
+.details-container {
+  margin: 40px;
+  border: solid;
+  border-radius: 30px;
+ 
+}
+
+.content {
+  height: 470px
+}

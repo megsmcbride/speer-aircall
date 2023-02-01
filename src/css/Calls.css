@@ -1,0 +1,41 @@
+.call-list-container {
+  height: 465px;
+  overflow-y: auto;
+  margin-bottom: 40px;
+}
+
+.upperNav {
+  display: flex;
+  flex-direction: row;
+}
+
+.tab {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0px 5px;
+}
+
+.callTabs {
+  display: flex;
+  margin-left: auto;
+  padding: 20px;
+}
+
+.inbox {
+  border-right: dashed 1px rgba(177, 170, 170, 0.633);
+}
+
+.tabActive {
+  background: none;
+  border: none;
+  border-bottom: solid 3px #e9210b;
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0px 5px;
+}
+
+.archive {
+  
+}
