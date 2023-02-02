@@ -1,20 +1,23 @@
 import React from "react";
 import axios from "axios";
+import "regenerator-runtime/runtime";
 
 const CallDetails = (props) => {
   const fullDate = new Date(props.created_at);
   const date = fullDate.toLocaleString().slice(0, 9);
-  const time =
-    fullDate.toLocaleTimeString().slice(0, 5) +
-    fullDate.toLocaleTimeString().slice(8);
+  const time = fullDate.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
   const id = props.id;
   const isArchived = props.is_archived;
+  const duration = new Date(props.duration * 1000).toISOString().slice(11, 19);
 
-  console.log("hello", props);
-  const handleArchive = () => {
+  const handleArchive = async () => {
     const updatedCalls = [];
 
-    for (const call of props.callData.calls) {
+    for (const call of props.callData) {
       if (call.id === id) {
         const updatedCall = { ...call, is_archived: !isArchived };
         updatedCalls.push(updatedCall);
@@ -22,15 +25,18 @@ const CallDetails = (props) => {
       updatedCalls.push(call);
     }
     props.setCallData((prev) => ({ ...prev, calls: updatedCalls }));
+    props.setArchiveUpdated(true);
 
-    const url = "https://aircall-job.herokuapp.com/activities/" + id;
+    const url =
+      "https://charming-bat-singlet.cyclic.app/https://cerulean-marlin-wig.cyclic.app/activities/" +
+      id;
 
-    axios
-      .post(url, {
+    await axios
+      .patch(url, {
         is_archived: !isArchived,
       })
       .then((res) => {
-        console.log(res);
+        res;
       })
       .catch((e) => console.log(e.response));
 
@@ -48,7 +54,7 @@ const CallDetails = (props) => {
           <p>
             {props.call_type} {props.direction} call
           </p>
-          <p>Duration: {props.duration}</p>
+          {props.call_type !== "missed" && <p> Duration: {duration}</p>}
           <p>From: {props.from}</p>
           <p>To: {props.to}</p>
           <p>Via: {props.via}</p>
@@ -64,7 +70,7 @@ const CallDetails = (props) => {
               }}
               className="archive"
             >
-              Unarchive{" "}
+              Unarchive
             </button>
           ) : (
             <button
