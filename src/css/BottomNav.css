@@ -4,7 +4,7 @@
   height: 50px;
   align-items: center;
   position: fixed;
-  box-shadow: 0px -8px 3px -6px rgba(157, 154, 154, 0.315);
+  box-shadow: 0px -8px 3px -6px rgba(158, 154, 154, 0.314);
   padding-top: 10px;
 }
 
@@ -39,4 +39,5 @@
   border: none;
   position: relative;
   bottom: 20%;
+  box-shadow: 0 0 0 3px #847f7f50;;
 }

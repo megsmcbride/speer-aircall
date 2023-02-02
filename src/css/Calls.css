@@ -7,6 +7,7 @@
 .upperNav {
   display: flex;
   flex-direction: row;
+  box-shadow: 0px 8px 3px -6px rgba(157, 154, 154, 0.315);
 }
 
 .tab {
@@ -19,8 +20,12 @@
 
 .callTabs {
   display: flex;
-  margin-left: auto;
-  padding: 20px;
+  padding: 20px 0px;
+  align-items: center;
+}
+
+.callTabs p {
+  margin-bottom: 6px; 
 }
 
 .inbox {
@@ -36,6 +41,27 @@
   margin: 0px 5px;
 }
 
-.archive {
-  
+.archiveIcon {
+  font-size: 17px;
+  margin: 0px 0px 5px 0px;
 }
+
+.archiveCalls {
+  height: auto;
+  border: 1px solid rgba(128, 128, 128, 0.418);
+  border-radius: 12px;
+  margin: 1.5em;
+  padding: 1em 7em;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  box-shadow: 0 0 6px rgb(0 0 0 / 20%);
+  background-color: white;
+  font-weight: 700;
+}
+
+.archiveCalls:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.526);
+}
+
+

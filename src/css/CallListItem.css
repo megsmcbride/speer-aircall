@@ -1,16 +1,20 @@
 .call-container {
   width: auto;
   height: auto;
-  border: 1px solid grey;
+  border: 1px solid rgba(128, 128, 128, 0.418);
   border-radius: 12px;
   margin: 1em;
-  padding: 0.7em;
+  padding: 1em;
   display: flex;
   flex-direction: row;
   box-shadow: 0 0 6px rgb(0 0 0 / 20%);
-
-
 }
+
+.call-container:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.526);
+}
+
+
 
 .call-info-right {
   display: flex;
@@ -27,6 +31,13 @@
 }
 
 .caller {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 0px;
+}
+
+.callerMissed {
+  color: rgb(238, 5, 5);
   font-weight: 700;
   font-size: 15px;
   margin: 0px;
@@ -53,5 +64,5 @@
 
 .call-icon {
   align-self: center;
-  padding: 1em;
+  padding-right: 1em;
 }
